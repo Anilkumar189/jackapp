@@ -1,25 +1,23 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
+ import { useState } from 'react';
 import './App.css';
+import Parent from './parent';
+ import Counter from './counter';
+import { Mycontext } from './My context';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+  var [institute,setInstitute]=useState("EDUPOLY")
+  return ( 
+     <Mycontext.Provider>
+      <div className="border border-2 m-2 p-2 border-success">
+        
+          <h1>App:{institute}</h1>
+           <Counter></Counter>  
+          <Parent></Parent>
+     </div>
+     </Mycontext.Provider>
+    
+     );
+    }
 
 export default App;
